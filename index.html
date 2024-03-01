@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+        html,
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #666;
+            font-size: 1rem;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        .border-b {
+            border-bottom: 1px solid #666;
+        }
+
+        .header {
+            padding-bottom: 2rem;
+        }
+
+        .body {
+            padding: 2rem 0;
+            text-align: left;
+            line-height: 1.5;
+            font-weight: 500;
+            font-family: Verdana, Trebuchet, Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #8bbad6;
+            font-weight: 500;
+        }
+
+        h2 {
+            color: #ff9f40;
+            font-weight: 500;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .header-search {
+            display: flex;
+            gap: 10px;
+            max-width: 35rem;
+            margin: 1rem auto;
+            text-wrap: nowrap;
+            align-items: center;
+        }
+
+        .header-search input {
+            padding: 0.25rem 0.5rem;
+            font-size: .875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+            display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .header-search input:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+
+        .header_btn {
+            cursor: pointer;
+            color: #fff;
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .header_btn:hover {
+            opacity: 0.8;
+        }
+
+        #result {
+            display: none;
+        }
+
+        .footer {
+            margin-top: 1rem;
+        }
+
+        #err {
+            display: none;
+            font-size: 80%;
+            color: red;
+            font-weight: 500;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+    </style>
+    <div class="container">
+        <div class="header border-b">
+            <h1>function md5()</h1>
+            <h2>Online generator md5 hash of a string</h2>
+            <div class="header-search">
+                md5 (<input id="header-input" type="text" placeholder="place here your string to hash">)
+            </div>
+            <div style="margin: 1rem 0;">
+                <button class="header_btn" id="header_btn" type="submit">hash darling, hash!</button>
+            </div>
+            <div class="" id="result">
+                <p>You are awesome! Here is your MD5 checksum:</p>
+                <p id="md5-code">0</p>
+            </div>
+            <p id="err">Ooops! I don't see any text to encode!</p>
+        </div>
+        <div class="body border-b">
+            <h2>More about MD5</h2>
+            <p>The goal of MD5 development was to create a function/algorithm that quickly and without much
+                computational
+                power creates a unique digest for each unique string (message). From this digest, it must not be
+                possible
+                (without using brute force or rainbow tables) to reconstruct the original message backwards. The MD5
+                hash is
+                128 bits long and is represented by 32 characters.</p>
+            <p>However, already a year after its publication, it became clear that this function does not work properly
+                and
+                a situation can occur where the function produces the same digest for two different strings. This flaw
+                is
+                fundamental and makes the MD5 function completely unusable for cryptography, as it leads to a number of
+                security holes. The use of the MD5 function has been strongly discouraged for many years.</p>
+            <p>Nevertheless, the MD5 function continues to be widely used to authenticate strings (most commonly
+                probably
+                passwords) or to verify data integrity in simple and non-critical applications where a brute force
+                attack is
+                not expected. To make it more difficult to attempt to decrypt digests created with MD5, a so-called
+                salt,
+                which is an arbitrary secret key known only to the author of the application, is added to the beginning
+                or
+                end of the text to be encrypted.</p>
+            <p>Recommendation: if you are creating your own application and need to create a digest of some text,
+                consider
+                using other encryption functions that have not been found to have any security flaws.</p>
+            <p>More info about MD5 (Message-Digest algorithm 5) on Wikipedia.org</p>
+        </div>
+        <div class="footer">
+            <p>Implementations MD5:</p>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script>
+    var input = document.getElementById("header-input")
+    var btn = document.getElementById("header_btn")
+    var result = document.getElementById("result")
+    var err = document.getElementById("err")
+    var md5Code = document.getElementById("md5-code")
+    btn.addEventListener("click", () => {
+        if (input.value === "") {
+            err.style.display = "block"
+            result.style.display = "none"
+        } else {
+            console.log(md5(input.value));
+            md5Code.innerText = md5(input.value)
+            result.style.display = "block"
+            err.style.display = "none"
+        }
+    })
+</script>
+
+</html>
